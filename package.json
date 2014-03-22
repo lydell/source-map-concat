@@ -1,0 +1,33 @@
+{
+  "name": "source-map-concat",
+  "version": "0.1.0",
+  "author": "Simon Lydell",
+  "license": "MIT",
+  "description": "Concatenate files with source maps.",
+  "main": "index.js",
+  "repository": "lydell/source-map-concat",
+  "keywords": [
+    "source map",
+    "source-map",
+    "source",
+    "map",
+    "dummy",
+    "concatenate",
+    "concat",
+    "cat",
+    "mapcat"
+  ],
+  "scripts": {
+    "test": "jshint index.js test/index.js && mocha"
+  },
+  "dependencies": {
+    "source-map": "lydell/source-map#source-map-concat",
+    "urix": "~0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.17.1",
+    "jshint": "^2.4.4",
+    "source-map-dummy": "~0.2.0",
+    "chai": "^1.9.0"
+  }
+}
