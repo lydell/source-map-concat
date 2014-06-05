@@ -95,7 +95,7 @@ property containing the source map.
 
 [source-map-resolve]: https://github.com/lydell/source-map-resolve
 [source-map-dummy]: https://github.com/lydell/source-map-dummy
-[SourceNode]: https://github.com/mozilla/source-map#sourcenode
+[`SourceNode`]: https://github.com/mozilla/source-map#sourcenode
 
 
 License
