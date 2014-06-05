@@ -5,6 +5,7 @@ var path                 = require("path")
 var sourceMap            = require("source-map")
 var SourceNode           = sourceMap.SourceNode
 var SourceMapConsumer    = sourceMap.SourceMapConsumer
+var SourceMapGenerator   = sourceMap.SourceMapGenerator
 var createDummySourceMap = require("source-map-dummy")
 var expect               = require("chai").expect
 
@@ -239,6 +240,39 @@ describe("concat", function() {
       "../js/foo.js",
       "/bar.js"
     ])
+
+  })
+
+
+  it("allows the map to be an object, a string or anything with `.toJSON()`", function() {
+
+    var generator = new SourceMapGenerator()
+
+    generator.addMapping({
+      generated: {
+        line: 1,
+        column: 1
+      },
+      original: {
+        line: 2,
+        column: 2
+      },
+      source: "foo"
+    })
+
+    var generateMap = function(map) {
+      return concat([{ content: "bar", map: map }]).toStringWithSourceMap().map.toString()
+    }
+
+    var mapFromObject = generateMap(generator.toJSON())
+    var mapFromString = generateMap(generator.toString())
+    var mapFromToJSON = generateMap({ toJSON: function() { return generator.toJSON() } })
+    var mapFromSourceMapGenerator = generateMap(generator)
+
+    expect(mapFromObject).to.equal(mapFromString)
+    expect(mapFromString).to.equal(mapFromToJSON)
+    expect(mapFromToJSON).to.equal(mapFromSourceMapGenerator)
+    expect(mapFromSourceMapGenerator).to.equal(mapFromObject)
 
   })
 

@@ -18,10 +18,14 @@ function concat(files, options) {
     }
 
     var node
-    if (file.map) {
+    var map = file.map
+    if (map) {
+      if (typeof map.toJSON === "function") {
+        map = map.toJSON()
+      }
       node = SourceNode.fromStringWithSourceMap(
         file.content,
-        new SourceMapConsumer(file.map),
+        new SourceMapConsumer(map),
         urix(path.relative(
           path.dirname( options.mapPath || "." ),
           path.dirname( file.sourcesRelativeTo || "." )

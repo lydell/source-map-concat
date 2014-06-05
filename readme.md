@@ -72,9 +72,10 @@ Usage
 `files` is an array of objects with the following properties:
 
 - `content`: The content of the file, as a string.
-- `map`: The source map of the file, if any, as an object. It could be taken
-  straight from a compiler, be resolved using [source-map-resolve] or created
-  using [source-map-dummy].
+- `map`: The source map of the file, if any, as an object, a string or anything
+  with a `.toJSON()` method (such as a [`SourceMapGenerator`]). It could be
+  taken straight from a compiler, be resolved using [source-map-resolve] or
+  created using [source-map-dummy].
 - `sourcesRelativeTo`: A path that `file.map.sources` are relative to. Defaults
   to `.`.
 
@@ -96,6 +97,7 @@ property containing the source map.
 [source-map-resolve]: https://github.com/lydell/source-map-resolve
 [source-map-dummy]: https://github.com/lydell/source-map-dummy
 [`SourceNode`]: https://github.com/mozilla/source-map#sourcenode
+[`SourceMapGenerator`]: https://github.com/mozilla/source-map#sourcemapgenerator
 
 
 License
