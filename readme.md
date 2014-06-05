@@ -16,16 +16,16 @@ var jsFiles = ["foo.js", "subdir/bar.js", "../baz.js"]
 jsFiles = jsFiles.map(function(file) {
   return {
     source:  file,
-    content: fs.readFileSync(file).toString()
+    code: fs.readFileSync(file).toString()
   }
 })
 jsFiles.forEach(function(file) {
-  var previousMap = resolveSourceMapSync(file.content, file.source, fs.readFileSync)
+  var previousMap = resolveSourceMapSync(file.code, file.source, fs.readFileSync)
   if (previousMap) {
     file.map = previousMap.map
     file.sourcesRelativeTo = previousMap.sourcesRelativeTo
   } else {
-    file.map = createDummySourceMap(file.content, {source: file.source, type: "js"})
+    file.map = createDummySourceMap(file.code, {source: file.source, type: "js"})
   }
 })
 
@@ -71,7 +71,7 @@ Usage
 
 `files` is an array of objects with the following properties:
 
-- `content`: The content of the file, as a string.
+- `code`: The contents of the file, as a string.
 - `map`: The source map of the file, if any, as an object, a string or anything
   with a `.toJSON()` method (such as a [`SourceMapGenerator`]). It could be
   taken straight from a compiler, be resolved using [source-map-resolve] or

@@ -26,9 +26,9 @@ describe("concat", function() {
 
   it("simply concatenates", function() {
     var concatenated = concat([
-      {content: "a"},
-      {content: "b"},
-      {content: "c"}
+      {code: "a"},
+      {code: "b"},
+      {code: "c"}
     ]).toString()
     expect(concatenated).to.equal("abc")
   })
@@ -36,9 +36,9 @@ describe("concat", function() {
 
   it("respects the original newlines", function() {
     var concatenated = concat([
-      {content: "a\na"},
-      {content: "b\rb"},
-      {content: "c\r\nc"}
+      {code: "a\na"},
+      {code: "b\rb"},
+      {code: "c\r\nc"}
     ]).toString()
     expect(concatenated).to.equal("a\nab\rbc\r\nc")
   })
@@ -46,9 +46,9 @@ describe("concat", function() {
 
   it("adds delimiter", function() {
     var concatenated = concat([
-      {content: "a"},
-      {content: "b"},
-      {content: "c"}
+      {code: "a"},
+      {code: "b"},
+      {code: "c"}
     ], {
       delimiter: "|"
     }).toString()
@@ -58,9 +58,9 @@ describe("concat", function() {
 
   it("allows a processing function", function() {
     var concatenated = concat([
-      {content: "a", foo: "A"},
-      {content: "b", foo: "B"},
-      {content: "c", foo: "C"}
+      {code: "a", foo: "A"},
+      {code: "b", foo: "B"},
+      {code: "c", foo: "C"}
     ], {
       process: function(node, file, index) {
         node.prepend(index + file.foo)
@@ -135,9 +135,9 @@ describe("concat", function() {
     })
 
     var node = concat([
-      { content: js.join(""),  map: createDummySourceMap(js,  {source: "foo.js"})  },
-      { content: "between" },
-      { content: css.join(""), map: createDummySourceMap(css, {source: "foo.css"}) }
+      { code: js.join(""),  map: createDummySourceMap(js,  {source: "foo.js"})  },
+      { code: "between" },
+      { code: css.join(""), map: createDummySourceMap(css, {source: "foo.css"}) }
     ], {
       delimiter: "\n",
       process: function(node) {
@@ -196,8 +196,8 @@ describe("concat", function() {
     }
 
     var concatenated1 = concat([
-      { content: foo.code, map: foo.map.toJSON() },
-      { content: bar.code, map: bar.map.toJSON() }
+      { code: foo.code, map: foo.map.toJSON() },
+      { code: bar.code, map: bar.map.toJSON() }
     ], {
       mapPath: "concatenated1.js.map"
     }).toStringWithSourceMap()
@@ -208,8 +208,8 @@ describe("concat", function() {
     ])
 
     var concatenated2 = concat([
-      { content: foo.code, map: foo.map.toJSON() },
-      { content: bar.code, map: bar.map.toJSON() }
+      { code: foo.code, map: foo.map.toJSON() },
+      { code: bar.code, map: bar.map.toJSON() }
     ], {
       mapPath: sep("out/concatenated2.js.map")
     }).toStringWithSourceMap()
@@ -220,8 +220,8 @@ describe("concat", function() {
     ])
 
     var concatenated2Alt = concat([
-      { content: foo.code, map: foo.map.toJSON(), sourcesRelativeTo: sep("../foo.js.map") },
-      { content: bar.code, map: bar.map.toJSON() }
+      { code: foo.code, map: foo.map.toJSON(), sourcesRelativeTo: sep("../foo.js.map") },
+      { code: bar.code, map: bar.map.toJSON() }
     ]).toStringWithSourceMap()
 
     expect(concatenated2Alt.map.toJSON().sources).to.eql([
@@ -230,8 +230,8 @@ describe("concat", function() {
     ])
 
     var concatenated3 = concat([
-      { content: foo.code, map: foo.map.toJSON(), sourcesRelativeTo: sep("js/foo.js.map") },
-      { content: bar.code, map: bar.map.toJSON() }
+      { code: foo.code, map: foo.map.toJSON(), sourcesRelativeTo: sep("js/foo.js.map") },
+      { code: bar.code, map: bar.map.toJSON() }
     ], {
       mapPath: sep("public/concatenated3.js.map")
     }).toStringWithSourceMap()
@@ -261,7 +261,7 @@ describe("concat", function() {
     })
 
     var generateMap = function(map) {
-      return concat([{ content: "bar", map: map }]).toStringWithSourceMap().map.toString()
+      return concat([{ code: "bar", map: map }]).toStringWithSourceMap().map.toString()
     }
 
     var mapFromObject = generateMap(generator.toJSON())

@@ -24,7 +24,7 @@ function concat(files, options) {
         map = map.toJSON()
       }
       node = SourceNode.fromStringWithSourceMap(
-        file.content,
+        file.code,
         new SourceMapConsumer(map),
         urix(path.relative(
           path.dirname( options.mapPath || "." ),
@@ -32,7 +32,7 @@ function concat(files, options) {
         ))
       )
     } else {
-      node = new SourceNode(null, null, null, file.content)
+      node = new SourceNode(null, null, null, file.code)
     }
 
     if (options.process) {
