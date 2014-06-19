@@ -1,3 +1,9 @@
+### Version 0.3.0 (2014-06-19) ###
+
+- Updated source-map-dummy to 0.3.0, which means slightly different mappings.
+  (Backwards-incompatible change.)
+
+
 ### Version 0.2.0 (2014-06-05) ###
 
 - Allow passing a source map as a string and anything with a `.toJSON()` method

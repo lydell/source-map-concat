@@ -1,6 +1,6 @@
 {
   "name": "source-map-concat",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Simon Lydell",
   "license": "MIT",
   "description": "Concatenate files with source maps.",
