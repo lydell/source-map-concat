@@ -21,7 +21,7 @@
     "test": "jshint index.js test/index.js && mocha"
   },
   "dependencies": {
-    "source-map": "lydell/source-map#source-map-concat",
+    "source-map": "~0.1.38",
     "urix": "~0.1.0"
   },
   "devDependencies": {
