@@ -18,7 +18,9 @@
     "mapcat"
   ],
   "scripts": {
-    "test": "jshint index.js test/index.js && mocha"
+    "lint": "jshint index.js test/index.js",
+    "unit": "mocha",
+    "test": "npm run lint && npm run unit"
   },
   "dependencies": {
     "source-map": "~0.1.38",
