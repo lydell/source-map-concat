@@ -1,3 +1,10 @@
+### Version 0.4.0 (Unreleased) ###
+
+- Updated the source-map dependency from a fork to 0.1.38. The fork supported
+  ancient `\r` newlines, while the official package does not.
+  (Backwards-incompatible change (but I doubt anyone will notice).)
+
+
 ### Version 0.3.0 (2014-06-19) ###
 
 - Updated source-map-dummy to 0.3.0, which means slightly different mappings.
