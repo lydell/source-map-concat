@@ -34,16 +34,6 @@ describe("concat", function() {
   })
 
 
-  it("respects the original newlines", function() {
-    var concatenated = concat([
-      {code: "a\na"},
-      {code: "b\rb"},
-      {code: "c\r\nc"}
-    ]).toString()
-    expect(concatenated).to.equal("a\nab\rbc\r\nc")
-  })
-
-
   it("adds delimiter", function() {
     var concatenated = concat([
       {code: "a"},
@@ -72,16 +62,16 @@ describe("concat", function() {
 
   it("creates correct source mappings", function() {
     // Of course concatenating JavaScript and CSS won’t work in reality, but whatever.
-    var expectedCode = [
-      "/* Banner */",
-      "void (function(){var foo=function(){",
-      "  return 0",
-      "}}());",
-      "void (function(){between}());",
-      "void (function(){#foo[attr='value']{",
-      "  margin: 0",
+    // Unix and Windows newlines are intentionally mixed.
+    var expectedCode =
+      "/* Banner */\n" +
+      "void (function(){var foo=function(){\n" +
+      "  return 0\r\n" +
+      "}}());\n" +
+      "void (function(){between}());\n" +
+      "void (function(){#foo[attr='value']{\r\n" +
+      "  margin: 0\r\n" +
       "}}());// Footer"
-    ].join("\n")
 
     // See the above expected code to see the offset of the generated positions.
     var mappings = []
@@ -89,11 +79,11 @@ describe("concat", function() {
     var js =
       ["var", " ", "foo", "=",   "function", "(",    ")",    "{",
        "\n  ", "return", " ", "0",
-       "\n", "}"                                                    ]
+       "\r\n", "}"                                                    ]
     mappings = mappings.concat(
       [[1,0],      [1,4], [1,7], [1,8],      [1,16], [1,17], [1,18],
                [2,2],         [2,9],
-             [3,0]                                                  ]
+               [3,0]                                                  ]
       .map(function(pair) {
         var line   = pair[0]
         var column = pair[1]
@@ -112,12 +102,12 @@ describe("concat", function() {
 
     var css =
       ["#foo", "[",   "attr", "=",   "'value'", "]",    "{",
-       "\n  ", "margin", ":", " ", "0",
-       "\n", "}"                                                     ]
+       "\r\n  ", "margin", ":", " ", "0",
+       "\r\n", "}"                                                     ]
     mappings = mappings.concat(
       [[1,0],  [1,4], [1,5],  [1,9], [1,10],    [1,17], [1,18],
-               [2,2],    [2,8],    [2,10],
-             [3,0]                                                   ]
+                 [2,2],    [2,8],    [2,10],
+               [3,0]                                                   ]
       .map(function(pair) {
         var line   = pair[0]
         var column = pair[1]
