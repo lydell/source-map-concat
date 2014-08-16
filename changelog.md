@@ -1,4 +1,4 @@
-### Version 0.4.0 (Unreleased) ###
+### Version 0.4.0 (2014-08-16) ###
 
 - Updated the source-map dependency from a fork to 0.1.38. The fork supported
   ancient `\r` newlines, while the official package does not.
