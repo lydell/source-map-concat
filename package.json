@@ -23,13 +23,13 @@
     "test": "npm run lint && npm run unit"
   },
   "dependencies": {
-    "source-map": "~0.1.38",
+    "source-map": "~0.4.0",
     "urix": "~0.1.0"
   },
   "devDependencies": {
-    "mocha": "^1.17.1",
-    "jshint": "^2.4.4",
-    "source-map-dummy": "~0.3.0",
-    "chai": "^1.9.0"
+    "mocha": "^2.1.0",
+    "jshint": "^2.6.0",
+    "source-map-dummy": "^1.0.0",
+    "chai": "^2.1.0"
   }
 }
