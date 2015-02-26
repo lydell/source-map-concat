@@ -1,4 +1,4 @@
-Overview [![Build Status](https://travis-ci.org/lydell/source-map-concat.png?branch=master)](https://travis-ci.org/lydell/source-map-concat)
+Overview [![Build Status](https://travis-ci.org/lydell/source-map-concat.svg?branch=master)](https://travis-ci.org/lydell/source-map-concat)
 ========
 
 Concatenate files with source maps.

@@ -1,3 +1,8 @@
+### Version 1.0.0 (2015-02-26) ###
+
+- Update the source-map dependency.
+
+
 ### Version 0.4.0 (2014-08-16) ###
 
 - Updated the source-map dependency from a fork to 0.1.38. The fork supported
