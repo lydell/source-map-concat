@@ -1,4 +1,4 @@
-// Copyright 2014, 2015 Simon Lydell
+// Copyright 2014, 2015, 2016 Simon Lydell
 // X11 (“MIT”) Licensed. (See LICENSE.)
 
 var path                 = require("path")
@@ -96,8 +96,9 @@ describe("concat", function() {
     )
 
     mappings.push({
-      original:  [],
-      generated: [4,1]
+      original:  [null, null],
+      generated: [4,1],
+      source:     null
     })
 
     var css =
@@ -120,8 +121,9 @@ describe("concat", function() {
     )
 
     mappings.push({
-      original:  [],
-      generated: [8,1]
+      original:  [null, null],
+      generated: [8,1],
+      source:     null
     })
 
     var node = concat([
