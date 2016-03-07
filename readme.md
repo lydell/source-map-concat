@@ -3,7 +3,7 @@ Overview [![Build Status](https://travis-ci.org/lydell/source-map-concat.svg?bra
 
 Concatenate files with source maps.
 
-```
+```js
 var fs     = require("fs")
 var path   = require("path")
 var concat = require("source-map-concat")
