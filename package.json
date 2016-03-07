@@ -27,9 +27,9 @@
     "urix": "~0.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.1.0",
-    "jshint": "^2.6.0",
+    "mocha": "^2.4.5",
+    "jshint": "^2.9.1",
     "source-map-dummy": "^1.0.0",
-    "chai": "^2.1.0"
+    "chai": "^3.5.0"
   }
 }
