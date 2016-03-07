@@ -5,6 +5,9 @@
   "license": "MIT",
   "description": "Concatenate files with source maps.",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "repository": "lydell/source-map-concat",
   "keywords": [
     "source map",
