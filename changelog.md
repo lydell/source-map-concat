@@ -1,3 +1,9 @@
+### Version 1.0.1 (2016-03-07) ###
+
+- Update the source-map dependency.
+- Reduce the npm package size by only including needed files.
+
+
 ### Version 1.0.0 (2015-02-26) ###
 
 - Update the source-map dependency.
